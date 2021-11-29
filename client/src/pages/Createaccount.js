@@ -28,7 +28,12 @@ function Createaccount() {
     console.log(name, email, password);
     const url = `/account/create/${name}/${email}/${password}`;
     (async () => {
-      var res = await fetch(url);
+      var res = await fetch(url, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
       var data = await res.json();
       console.log(data);
     })();
