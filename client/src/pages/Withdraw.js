@@ -12,9 +12,7 @@ function Withdraw() {
     // return true;
   }
   function handleCreate() {
-    fetch(
-      `/account/update/${userContext.loggedIn.email}/-${withdraw}`
-    )
+    fetch(`/account/update/${userContext.loggedIn.email}/-${withdraw}`)
       .then((response) => response.text())
       .then((text) => {
         try {
