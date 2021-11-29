@@ -35,7 +35,7 @@ app.get("/account/create/:name/:email/:password", function (req, res) {
         .create(req.params.name, req.params.email, req.params.password)
         .then((user) => {
           console.log(user);
-          res.send(user);
+          res.send(JSON.parse(user));
         });
     }
   });
