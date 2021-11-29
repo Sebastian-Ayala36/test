@@ -7,6 +7,8 @@ require("dotenv").config();
 const path = require("path");
 app.use(cors());
 
+app.use(express.json());
+
 // used to serve static files from public directory
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
