@@ -7,11 +7,9 @@ require("dotenv").config();
 const path = require("path");
 app.use(cors());
 
-app.use(express.json());
-
 // used to serve static files from public directory
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.use(express.static(path.join(__dirname, "client", "build")));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
@@ -35,7 +33,7 @@ app.get("/account/create/:name/:email/:password", function (req, res) {
         .create(req.params.name, req.params.email, req.params.password)
         .then((user) => {
           console.log(user);
-          res.send(JSON.parse(user));
+          res.send(user);
         });
     }
   });
