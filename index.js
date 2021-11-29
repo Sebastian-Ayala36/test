@@ -5,6 +5,8 @@ var dal = require("./dal.js");
 const e = require("express");
 require("dotenv").config();
 
+app.use(cors());
+
 // used to serve static files from public directory
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
@@ -12,9 +14,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 } else {
-  res.send("API");
+  app.get("/", (req, res) => {
+    res.send("API");
+  });
 }
-app.use(cors());
 
 // create user account
 app.get("/account/create/:name/:email/:password", function (req, res) {
