@@ -4,7 +4,7 @@ var cors = require("cors");
 var dal = require("./dal.js");
 const e = require("express");
 require("dotenv").config();
-
+const path = require("path");
 app.use(cors());
 
 // used to serve static files from public directory
