@@ -12,7 +12,9 @@ function Deposit() {
     // return true;
   }
   function handleCreate() {
-    fetch(`/account/update/${userContext.loggedIn.email}/${deposit}`)
+    fetch(
+      `http://localhost:3001/account/update/${userContext.loggedIn.email}/${deposit}`
+    )
       .then((response) => response.text())
       .then((text) => {
         try {

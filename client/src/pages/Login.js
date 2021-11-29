@@ -44,7 +44,7 @@ function LoginForm(props) {
   const userContext = useContext(UserContext);
 
   function handle() {
-    fetch(`/account/login/${email}/${password}`)
+    fetch(`http://localhost:3001/account/login/${email}/${password}`)
       .then((response) => response.text())
       .then((text) => {
         try {
