@@ -13,7 +13,7 @@ function Withdraw() {
   }
   function handleCreate() {
     fetch(
-      `http://localhost:3001/account/update/${userContext.loggedIn.email}/-${withdraw}`
+      `/account/update/${userContext.loggedIn.email}/-${withdraw}`
     )
       .then((response) => response.text())
       .then((text) => {
